@@ -1,0 +1,4 @@
+flet==0.22.*
+pip-tools==7.4.*
+wakeonlan==3.*
+getmac==*
