@@ -196,7 +196,6 @@ class ScansGroup(ft.Column):
                 else:
                     mac_address = get_mac_address(ip=ip)
                 self.create_scan(hostname, str(mac_address), ip)
-                print(f"IP: {ip}, Hostname: {hostname}, MAC Address: {mac_address}")
             elif "Destination host unreachable" in output.decode("utf-8"):
                 pass
             elif "Request timed out" not in output.decode("utf-8"):
