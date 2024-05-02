@@ -16,4 +16,4 @@ COPY src/ /usr/local/bin/wol/
 
 EXPOSE 8080
 
-CMD ["python", "/usr/local/bin/wol/main.py"]
+CMD ["cd", "/usr/local/bin/wol/", "python", "main.py"]
