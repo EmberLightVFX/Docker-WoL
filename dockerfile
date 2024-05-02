@@ -1,5 +1,10 @@
-FROM python:3.12
+FROM python:3.12-slim
 LABEL maintainer="Jacob Danell <jacob@emberlight.se>"
+
+RUN apt update \
+    && apt install -y --no-install-recommends iputils-ping \
+    && apt autoclean \
+    && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /usr/local/bin
 
