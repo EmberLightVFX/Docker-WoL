@@ -1,4 +1,4 @@
-FROM python:3.12-slim
+FROM python:3.12
 LABEL maintainer="Jacob Danell <jacob@emberlight.se>"
 
 WORKDIR /usr/local/bin
