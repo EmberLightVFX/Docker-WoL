@@ -59,12 +59,10 @@ class ScansGroup(ft.Column):
 
         self.local_mac_address = get_mac_address()
         self.local_ip_address = str(self.get_local_ip_address())
-        self.net_addr = settings.ip_range
 
-        self.ip_net = ipaddress.ip_network(self.net_addr)
-        self.all_hosts: list[ipaddress.IPv4Address | ipaddress.IPv6Address] = list(
-            self.ip_net.hosts()
-        )
+        self.net_addr: str
+        self.ip_net: ipaddress.IPv4Network | ipaddress.IPv6Network
+        self.all_hosts: list[ipaddress.IPv4Address | ipaddress.IPv6Address]
 
         # Configure subprocess to hide the console window (for Windows)
         with contextlib.suppress(Exception):
@@ -118,6 +116,13 @@ class ScansGroup(ft.Column):
         return self.scans_tab
 
     def scan_clicked(self, e: ft.ControlEvent) -> None:
+        self.net_addr = settings.ip_range
+        self.ip_net = ipaddress.ip_network(self.net_addr)
+        self.all_hosts: list[ipaddress.IPv4Address | ipaddress.IPv6Address] = list(
+            self.ip_net.hosts()
+        )
+        print(self.net_addr)
+
         self.scans.clear()
         self.set_progressbar(True)
 
@@ -186,7 +191,6 @@ class ScansGroup(ft.Column):
 
         # Process ping output
         with self.print_lock:
-            print(output.decode("utf-8"))
             if "Reply" in output.decode("utf-8") or "icmp_seq" in output.decode(
                 "utf-8"
             ):
