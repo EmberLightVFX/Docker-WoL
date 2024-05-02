@@ -14,6 +14,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY src/ /usr/local/bin/wol/
 
+WORKDIR /usr/local/bin/wol
+
 EXPOSE 8080
 
-CMD ["cd", "/usr/local/bin/wol/", "python", "main.py"]
+
+CMD ["python", "main.py"]
