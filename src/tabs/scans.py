@@ -118,6 +118,8 @@ class ScansGroup(ft.Column):
         return self.scans_tab
 
     def scan_clicked(self, e: ft.ControlEvent) -> None:
+        print(os.name)
+        print("ping" if os.name == "nt" else "/bin/ping")
         self.scans.clear()
         self.set_progressbar(True)
 
