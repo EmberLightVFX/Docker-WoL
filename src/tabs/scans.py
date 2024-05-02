@@ -175,9 +175,11 @@ class ScansGroup(ft.Column):
             ["-n", "1", "-w", "150"] if os.name == "nt" else ["-c", "1", "-W", "1"]
         )
 
+        ping = "ping" if os.name == "nt" else "/bin/ping"
+
         # Execute ping command
         output = subprocess.Popen(
-            ["ping"] + ping_params + [ip],
+            [ping] + ping_params + [ip],
             stdout=subprocess.PIPE,
             startupinfo=self.info if os.name == "nt" else None,
         ).communicate()[0]
