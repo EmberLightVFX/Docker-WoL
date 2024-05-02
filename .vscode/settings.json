@@ -8,5 +8,6 @@
         "STARTF",
         "STARTUPINFO",
         "USESHOWWINDOW"
-    ]
+    ],
+    "python.terminal.executeInFileDir": true
 }

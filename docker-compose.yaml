@@ -4,6 +4,7 @@ services:
     container_name: wol
     image: ghcr.io/emberlightvfx/docker-wol:latest
     restart: unless-stopped
+    volumes: settings:/usr/local/bin/wol/settings
     environment:
       - FLET_SERVER_PORT=8080
     network_mode: host

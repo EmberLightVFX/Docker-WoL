@@ -55,8 +55,8 @@ class Settings:
             self.save()
 
     def load(self):
-        if os.path.exists("settings.ini"):
-            self._settings.read("settings.ini")
+        if os.path.exists("./settings/settings.ini"):
+            self._settings.read("./settings/settings.ini")
         else:
             self.save()
 
@@ -75,7 +75,9 @@ class Settings:
         self._thread_started = False
 
     def save(self):
-        with open("settings.ini", "w") as settings_file:
+        path = os.path.abspath("./settings/settings.ini")
+        print(path)
+        with open(path, "w") as settings_file:
             self._settings.write(settings_file)
 
 
