@@ -14,4 +14,4 @@ pip-compile requirements.in
 ## Build docker image and run image from the docker container
 
 docker build --tag emberlightvfx/wol:latest .
-docker run -d --network host -p 8080:8080 emberlightvfx/wol
+docker run -d --network host emberlightvfx/wol

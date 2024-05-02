@@ -184,6 +184,7 @@ class ScansGroup(ft.Column):
 
         # Process ping output
         with self.print_lock:
+            print(output.decode("utf-8"))
             if "Reply" in output.decode("utf-8") or "icmp_seq" in output.decode(
                 "utf-8"
             ):
