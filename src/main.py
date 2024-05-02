@@ -68,4 +68,4 @@ async def main(page: ft.Page):
     page.add(WoLApp())
 
 
-ft.app(main)
+ft.app(target=main, view=None)

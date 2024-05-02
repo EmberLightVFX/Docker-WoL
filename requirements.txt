@@ -47,6 +47,8 @@ flet-core==0.22.0
     # via flet-runtime
 flet-runtime==0.22.0
     # via flet
+getmac==0.9.4
+    # via -r requirements.in
 h11==0.14.0
     # via
     #   httpcore
