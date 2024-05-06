@@ -76,7 +76,6 @@ class Settings:
 
     def save(self):
         path = os.path.abspath("./settings/settings.ini")
-        print(path)
         with open(path, "w") as settings_file:
             self._settings.write(settings_file)
 

@@ -121,7 +121,6 @@ class ScansGroup(ft.Column):
         self.all_hosts: list[ipaddress.IPv4Address | ipaddress.IPv6Address] = list(
             self.ip_net.hosts()
         )
-        print(self.net_addr)
 
         self.scans.clear()
         self.set_progressbar(True)
