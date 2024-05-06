@@ -155,11 +155,6 @@ class ComputersGroup(ft.Column):
                 self.new_name.value,
                 self.new_mac.value,
             )
-            settings.set(
-                "Computers",
-                self.new_name.value,
-                self.new_mac.value,
-            )
             self.new_name.value = ""
             self.new_mac.value = ""
             self.new_name.focus()
@@ -173,7 +168,11 @@ class ComputersGroup(ft.Column):
             self.delete,
         )
         self.computers.controls.append(computer)
-        # self.update_info()
+        settings.set(
+            "Computers",
+            name,
+            mac_address,
+        )
 
     def delete(self, computer: Computer):
         settings.remove("Computers", computer.name)
